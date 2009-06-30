@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :posts
+
   map.root :controller => 'sessions', :action => 'new'
 
   map.forgot_password '/forgot_password', :controller => 'passwords', :action => 'new'
