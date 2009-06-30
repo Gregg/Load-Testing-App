@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title><%= @page_title || APP_CONFIG[:site_name] %></title>
+<meta http-equiv="content-type" content="text/xhtml; charset=utf-8" />
+<meta name="Author" content="Portland On Rails | www.portlandonrails.com" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />	
+<%= stylesheet_link_tag 'layout' %>
+<%= javascript_include_tag 'jquery' %>
+<!--[if lte IE 7]>
+<link href="/stylesheets/patches/patch_my_layout.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+  <div class="page_margins">
+    <div class="page">
+      <div id="header">
+        <div id="topnav">
+          <a href="#">Contact</a> | <a href="#">Sitemap</a>
+        </div>
+        <h1>Rails Starter Template</h1>
+      </div>
+      <div id="nav">
+        <div class="hlist">
+          <ul>
+            <% if logged_in? %>
+    				<li><%= link_to 'Logout', logout_path %></li>
+    				<% else %>
+    				<li><%= link_to 'Login', login_path %></li>
+    				<li><%= link_to 'Signup', signup_path %></li>
+    				<% end %>
+          </ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="col1">
+          <div id="col1_content" class="clearfix">
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</p>
+          </div>
+        </div>
+        <div id="col2">
+          <div id="col2_content" class="clearfix">
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</p>
+          </div>
+        </div>
+        <div id="col3">
+          <div id="col3_content" class="clearfix">
+            <%= flash_messages %>
+      			<%= yield :layout %>
+          </div>
+          <!-- IE Column Clearing -->
+          <div id="ie_clearing"> &#160; </div>
+        </div>
+      </div>
+      <!-- begin: #footer -->
+      <div id="footer">Layout based on <a href="http://www.yaml.de/">YAML</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

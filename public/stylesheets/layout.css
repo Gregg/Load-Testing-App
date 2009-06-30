@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* import core styles */
+@import url(core/slim_base.css);
+/* import screen layouts */
+@import url(screen/basemod.css);
+@import url(navigation/nav_shinybuttons.css);
+@import url(screen/content.css);
+@import url(screen/forms.css);
+/* import print layout  */
+@import url(print/print_003_draft.css);

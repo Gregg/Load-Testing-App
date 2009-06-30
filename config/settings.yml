@@ -1,0 +1,14 @@
+development:
+  site_url: http://localhost:3000
+  site_name: Stupid Social Network
+  admin_email: Gregg@RailsEnvy.com
+
+test:
+  site_url: http://localhost:3000
+  site_name: Stupid Social Network
+  admin_email: Gregg@RailsEnvy.com
+
+production:
+  site_url: http://stupidss.com
+  site_name: Stupid Social Network
+  admin_email: Gregg@RailsEnvy.com

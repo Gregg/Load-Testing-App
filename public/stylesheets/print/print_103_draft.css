@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* import print base styles */
+@import url(/css/core/slim_print_base.css);
+
+@media print
+{
+ /**
+  * @section column selection
+  * individually switch on/off any content column for printing
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1, #col1_content {float:none; width: 100%; margin: 0; padding: 0; border: 0; }
+  #col2 { display:none; }
+  #col3, #col3_content { width: 100%; margin:0; padding: 0; border:0; }
+
+  /* Optional Column Labels
+  #col1_content:before { content:" [ left | middle | right column ]"; }
+  #col3_content:before { content:" [ left | middle | right column ]"; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* optional output of acronyms and abbreviations*/
+
+  /*
+    abbr[title]:after, acronym[title]:after { content: '(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* optional URL output of hyperlinks in print layout */
+  /*
+  a[href]:after {
+    content:" <URL: "attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
