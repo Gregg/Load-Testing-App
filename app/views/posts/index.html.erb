@@ -1,24 +1,24 @@
-<h1>Listing posts</h1>
+<h1><%= @user.name %>'s Journal</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>User</th>
-  </tr>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%=h post.title %></td>
-    <td><%=h post.body %></td>
-    <td><%=h post.user_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div style="background-color: #DDD; border: 1px solid #CCC; padding: 4px; margin-bottom:10px;">
+  <h2><%= h post.title %> - <%= post.created_at %></h2>
+  <p><%=h post.body %></p>
+
+    <% if current_user.id == post.user_id %>
+      <%= link_to 'Edit', edit_user_post_path(post.user, post) %>
+      <%= link_to 'Destroy', [post.user, post], :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    
+    <p><small><strong>Viewers:</strong>
+        <% post.post_views.each do |pu| %>
+           <%= pu.user.login %>
+        <% end %>
+    </small></p>
+</div>
 <% end %>
-</table>
 
-<br />
+<%= will_paginate @posts %>
 
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'New post', new_user_post_path(current_user) if current_user.id == @user.id %>

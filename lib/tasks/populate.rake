@@ -32,7 +32,7 @@ namespace :populate do
   end
   desc 'import some post users for each post'
   task :import_post_users do
-    max_id = User.last.id
+    max_id = 500
     Post.all.each do |p|
       PostUser.populate(20) do |pu|
         user_id = rand(max_id)

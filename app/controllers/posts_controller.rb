@@ -1,9 +1,20 @@
 class PostsController < ApplicationController
+  before_filter :login_required
+  
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
-
+    
+    # TODO: Check to see if user is authorized to view each post
+    
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.paginate :page => params[:page], :per_page => 10# , :joins => [:post_users], :conditions => ["post_user.user_id = ?", current_user]
+    
+    # mark that this user viewed this page
+    @posts.each do |p|
+      p.post_views.create(:user_id => current_user.id)
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
